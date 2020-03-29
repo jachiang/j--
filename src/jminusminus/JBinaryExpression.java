@@ -252,5 +252,20 @@ class JMultiplyOp extends JBinaryExpression {
         rhs.codegen(output);
         output.addNoArgInstruction(IMUL);
     }
+}
 
+/**
+* The AST node for a division (/) expression.
+*/
+class JDivideOp extends JBinaryExpression {
+    public JDivideOp(int line, JExpression lhs, JExpression rhs){
+        super(line, "/", lhs, rhs);
+    }
+
+    public JExpression analyze (Context context) {
+        return this;
+        }
+
+    public void codegen(CLEmitter output) {
+    }
 }
