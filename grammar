@@ -49,19 +49,19 @@ localVariableDeclarationStatement ::= type variableDeclarators SEMI
 variableDeclarators ::= variableDeclarator {COMMA variableDeclarator}
 
 variableDeclarator ::= IDENTIFIER [ASSIGN variableInitializer]
-                    
+
 variableInitializer ::= arrayInitializer | expression
 
-arrayInitializer ::= LCURLY 
+arrayInitializer ::= LCURLY
                        [variableInitializer
                          {COMMA variableInitializer} [COMMA]]
-                     RCURLY 
+                     RCURLY
 
 arguments ::= LPAREN [expression {COMMA expression}] RPAREN
 
 type ::= referenceType | basicType
 
-basicType ::= BOOLEAN | CHAR | INT 
+basicType ::= BOOLEAN | CHAR | INT | DOUBLE
 
 referenceType ::= basicType LBRACK RBRACK {LBRACK RBRACK}
                 | qualifiedIdentifier {LBRACK RBRACK}

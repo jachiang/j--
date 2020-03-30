@@ -11,15 +11,15 @@ package jminusminus;
  */
 
 enum TokenKind {
-    EOF("<EOF>"), 
+    EOF("<EOF>"),
 
     // Reserved words
-    ABSTRACT("abstract"), BOOLEAN("boolean"), CHAR("char"), CLASS("class"), 
-    ELSE("else"), EXTENDS("extends"), IF("if"), IMPORT("import"), 
-    INSTANCEOF("instanceof"), INT("int"), NEW("new"), PACKAGE("package"), 
-    PRIVATE("private"), PROTECTED("protected"), PUBLIC("public"), 
-    RETURN("return"), STATIC("static"), SUPER("super"), THIS("this"), 
-    VOID("void"), WHILE("while"), 
+    ABSTRACT("abstract"), BOOLEAN("boolean"), DOUBLE("double"), CHAR("char"),
+    CLASS("class"), ELSE("else"), EXTENDS("extends"), IF("if"), IMPORT("import"),
+    INSTANCEOF("instanceof"), INT("int"), NEW("new"), PACKAGE("package"),
+    PRIVATE("private"), PROTECTED("protected"), PUBLIC("public"),
+    RETURN("return"), STATIC("static"), SUPER("super"), THIS("this"),
+    VOID("void"), WHILE("while"),
 
     // Operators
     ASSIGN("="), DEC("--"), EQUAL("=="), GT(">"), INC("++"), LAND("&&"),

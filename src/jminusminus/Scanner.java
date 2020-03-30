@@ -65,6 +65,7 @@ class Scanner {
         reserved.put(ABSTRACT.image(), ABSTRACT);
         reserved.put(BOOLEAN.image(), BOOLEAN);
         reserved.put(CHAR.image(), CHAR);
+        reserved.put(DOUBLE.image(), DOUBLE);
         reserved.put(CLASS.image(), CLASS);
         reserved.put(ELSE.image(), ELSE);
         reserved.put(EXTENDS.image(), EXTENDS);
