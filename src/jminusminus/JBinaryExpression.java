@@ -277,3 +277,19 @@ class JDivideOp extends JBinaryExpression {
         output.addNoArgInstruction(IDIV);
     }
 }
+
+/**
+* The AST node for a modulo (%) expression.
+*/
+class JRemainderOp extends JBinaryExpression {
+    public JRemainderOp(int line, JExpression lhs, JExpression rhs){
+        super(line, "%", lhs, rhs);
+    }
+
+    public JExpression analyze (Context context) {
+        return this;
+        }
+
+    public void codegen(CLEmitter output) {
+    }
+}
