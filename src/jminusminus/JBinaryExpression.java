@@ -301,3 +301,19 @@ class JRemainderOp extends JBinaryExpression {
         output.addNoArgInstruction(IREM);
     }
 }
+
+/**
+* The AST node for a modulo (%) expression.
+*/
+class JLBSOp extends JBinaryExpression {
+    public JLBSOp(int line, JExpression lhs, JExpression rhs){
+        super(line, "<<", lhs, rhs);
+    }
+
+    public JExpression analyze (Context context) {
+        return this;
+        }
+
+    public void codegen(CLEmitter output) {
+    }
+}
