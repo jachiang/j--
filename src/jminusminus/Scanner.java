@@ -261,8 +261,8 @@ class Scanner {
             return new TokenInfo(EOF, line);
         case '0':
             // Handle only simple decimal integers for now.
-            nextCh();
-            return new TokenInfo(INT_LITERAL, "0", line);
+            // nextCh();
+            // return new TokenInfo(INT_LITERAL, "0", line);
         case '1':
         case '2':
         case '3':
@@ -273,11 +273,36 @@ class Scanner {
         case '8':
         case '9':
             buffer = new StringBuffer();
-            while (isDigit(ch)) {
+            // Scan for leading zero of int/double literal.
+            boolean leading_null = false;
+            if (ch == '0') {
+                leading_null = true;
+            }
+            buffer.append(ch);
+            nextCh();
+            // Ensure no leading zero present, unless followed by decimal.
+            if (isDigit(ch) && leading_null) {
+                reportScannerError("Leading zero not allowed: '%c'", ch);
+            }
+            // Scan rest of int/double literal.
+            boolean has_dot = false;
+            while (isDigit(ch) | ch == '.') {
+                if (ch == '.') {
+                    // Only single dot allowed in double literal.
+                    if (!has_dot) {
+                        has_dot = true;
+                    } else {
+                        reportScannerError("Only one decimal separator allowed: '%c'", ch);
+                    }
+                }
                 buffer.append(ch);
                 nextCh();
             }
-            return new TokenInfo(INT_LITERAL, buffer.toString(), line);
+            if (has_dot) {
+                return new TokenInfo(DOUBLE_LITERAL, buffer.toString(), line);
+            } else {
+                return new TokenInfo(INT_LITERAL, buffer.toString(), line);
+            }
         default:
             if (isIdentifierStart(ch)) {
                 buffer = new StringBuffer();
