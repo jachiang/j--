@@ -1417,6 +1417,8 @@ public class Parser {
             return new JLiteralChar(line, scanner.previousToken().image());
         } else if (have(STRING_LITERAL)) {
             return new JLiteralString(line, scanner.previousToken().image());
+        } else if (have(DOUBLE_LITERAL)) {
+            return new JLiteralDouble(line, scanner.previousToken().image());
         } else if (have(TRUE)) {
             return new JLiteralTrue(line);
         } else if (have(FALSE)) {
