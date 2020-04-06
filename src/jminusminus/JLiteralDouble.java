@@ -37,7 +37,7 @@ class JLiteralDouble extends JExpression {
      */
 
     public JExpression analyze(Context context) {
-        // type = Type.DOUBLE;
+        type = Type.DOUBLE;
         return this;
     }
 
@@ -51,8 +51,8 @@ class JLiteralDouble extends JExpression {
      */
 
     public void codegen(CLEmitter output) {
-        // double d = Double.parseDouble(text);
-        // output.addLDCInstruction(d);
+        double d = Double.parseDouble(text);
+        output.addLDCInstruction(d);
     }
 
     /**
